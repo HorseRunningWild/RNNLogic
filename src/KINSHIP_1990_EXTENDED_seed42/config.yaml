@@ -1,0 +1,47 @@
+data: !!python/object/new:easydict.EasyDict
+  dictitems:
+    batch_size: 16
+    data_path: /home/amax/Zixing_Jia/2026_03_model/cache_KINSHIP_1990_EXTENDED_seed42
+    rule_file: /home/amax/Zixing_Jia/2026_03_model/cache_KINSHIP_1990_EXTENDED_seed42/mined_rules.txt
+  state:
+    batch_size: 16
+    data_path: /home/amax/Zixing_Jia/2026_03_model/cache_KINSHIP_1990_EXTENDED_seed42
+    rule_file: /home/amax/Zixing_Jia/2026_03_model/cache_KINSHIP_1990_EXTENDED_seed42/mined_rules.txt
+gpus:
+- 0
+num_iters: 10
+predictor: !!python/object/new:easydict.EasyDict
+  dictitems:
+    eval: &id001 !!python/object/new:easydict.EasyDict
+      dictitems:
+        expectation: true
+      state:
+        expectation: true
+    model: &id002 !!python/object/new:easydict.EasyDict
+      dictitems:
+        hidden_dim: 32
+      state:
+        hidden_dim: 32
+    optimizer: &id003 !!python/object/new:easydict.EasyDict
+      dictitems:
+        lr: 0.005
+        weight_decay: 0
+      state:
+        lr: 0.005
+        weight_decay: 0
+    train: &id004 !!python/object/new:easydict.EasyDict
+      dictitems:
+        batch_per_epoch: 100
+        print_every: 10
+        smoothing: 0.1
+      state:
+        batch_per_epoch: 100
+        print_every: 10
+        smoothing: 0.1
+  state:
+    eval: *id001
+    model: *id002
+    optimizer: *id003
+    train: *id004
+save_path: KINSHIP_1990_EXTENDED_seed42
+seed: 42
